@@ -1,6 +1,7 @@
 # Rippersnapper
 
-TODO: Write a gem description
+Named after the worst decepticon ever a shark with T-Rex arms.  Ashamed of his
+silly disguise, he now spends his days figuring out domain names.
 
 ## Installation
 
@@ -18,7 +19,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    url = Rippersnapper.parse("http://www.rippersnapper.net")
+    url.url       # => "http://www.rippersnapper.net" (the original url)
+    url.suffix    # => "net"
+    url.domain    # => "rippersnapper"
+
+    url = Rippersnapper.parse("http://foo.bar.rippersnapper.co.uk/asdf.html?q=arg")
+    url.public    # => "co.uk"
+    url.domain    # => "rippersnapper"
+    url.subdomain # => "foo.bar"
+    url.path      # => "/asdf.html?q=arg"
 
 ## Contributing
 
