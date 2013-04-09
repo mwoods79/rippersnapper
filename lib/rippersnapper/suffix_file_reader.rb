@@ -1,6 +1,6 @@
 module Rippersnapper
 
-  class SuffixFileValidator
+  class SuffixFileReader
     attr_reader :file
 
     def initialize file = nil

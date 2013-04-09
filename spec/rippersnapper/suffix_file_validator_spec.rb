@@ -3,25 +3,25 @@ require 'stringio'
 
 module Rippersnapper
 
-  describe SuffixFileValidator do
+  describe SuffixFileReader do
 
     context '#initialize' do
 
       context 'passing in a file' do
         let(:file) { stub :file, each_line: [] }
-        subject { SuffixFileValidator.new file }
+        subject { SuffixFileReader.new file }
         its(:file) { should be file}
       end
 
       context 'file default' do
-        subject { SuffixFileValidator.new }
+        subject { SuffixFileReader.new }
         its(:file) { should be_a_kind_of File }
       end
     end
 
     context '#contains?' do
       let(:file) { StringIO.new "//coment\ncom\nco\nco.uk" }
-      subject { SuffixFileValidator.new file }
+      subject { SuffixFileReader.new file }
 
       it { should respond_to :contains? }
 
