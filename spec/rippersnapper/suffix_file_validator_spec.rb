@@ -11,7 +11,13 @@ module Rippersnapper
         subject { SuffixFileValidator.new file }
         its(:file) { should be file}
       end
+
+      context 'file default' do
+        subject { SuffixFileValidator.new }
+        its(:file) { should be_a_kind_of File }
+      end
     end
+
 
   end
 
