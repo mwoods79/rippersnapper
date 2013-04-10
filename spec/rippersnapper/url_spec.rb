@@ -18,12 +18,16 @@ module Rippersnapper
       subject { Url.new "http://drive.google.com/micah" }
       its(:url) { should eq "http://drive.google.com/micah" }
       its(:path) { should eq "/micah" }
+      its(:scheme) { should eq "http" }
+      its(:host) { should eq "drive.google.com" }
     end
 
     context "without a scheme" do
       subject { Url.new "www.google.com/micah" }
       its(:url) { should eq "http://www.google.com/micah" }
       its(:path) { should eq "/micah" }
+      its(:scheme) { should eq "http" }
+      its(:host) { should eq "www.google.com" }
     end
 
     context "with a query string" do
