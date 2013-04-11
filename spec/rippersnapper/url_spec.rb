@@ -20,6 +20,7 @@ module Rippersnapper
       its(:path) { should eq "/micah" }
       its(:scheme) { should eq "http" }
       its(:host) { should eq "drive.google.com" }
+      its(:suffix) { should eq "com" }
     end
 
     context "without a scheme" do
@@ -28,11 +29,13 @@ module Rippersnapper
       its(:path) { should eq "/micah" }
       its(:scheme) { should eq "http" }
       its(:host) { should eq "www.google.com" }
+      its(:suffix) { should eq "com" }
     end
 
     context "with a query string" do
       subject { Url.new "www.google.com/micah?date=today" }
       its(:path) { should eq "/micah?date=today" }
+      its(:suffix) { should eq "com" }
     end
   end
 end
