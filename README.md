@@ -1,7 +1,10 @@
 # Rippersnapper
 
-Named after the worst decepticon ever a shark with T-Rex arms.  Ashamed of his
-silly disguise, he now spends his days figuring out domain names.
+![Rippersnapper](https://github.com/mwoods79/rippersnapper/raw/master/rippersnapper.jpg)
+
+Rippersnapper transforms into a weird upright bipedal shark creature. His finned
+twin missile launcher weapon mounts on his back in this mode. He launches his
+attack on any URL, ripping it apart with his baby T-Rex arms!
 
 ## Installation
 
