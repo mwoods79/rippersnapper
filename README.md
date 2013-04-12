@@ -28,10 +28,25 @@ Or install it yourself as:
     url.domain    # => "rippersnapper"
 
     url = Rippersnapper.parse("http://foo.bar.rippersnapper.co.uk/asdf.html?q=arg")
-    url.public    # => "co.uk"
+    url.suffix    # => "co.uk"
     url.domain    # => "rippersnapper"
     url.subdomain # => "foo.bar"
     url.path      # => "/asdf.html?q=arg"
+
+## Notable differences between Rippersnapper and [Domainatrix](https://github.com/pauldix/domainatrix)
+
+One of Rippersnappers goals is to be a compatable API with Domainatrix, but
+there are some differences.
+
+1.  Rippersnapper chose the method name `suffix` instead of `public_suffix`.
+    Domainatrix is misleading with this name, for instance it will return
+    `parliment.uk`, however this is not a public suffix, it is a private suffix
+    reserved for Parliment.
+
+2.  Rippersnapper does not parse `http://localhost:3000` at the moment.  I chose
+    not to do this b/c `http://localhost.com` is a valid domain, and will parse,
+    but `localhost:3000` is not a domain name, it's a hostname.  If you need it
+    let me know and I will reconsider
 
 ## Contributing
 
