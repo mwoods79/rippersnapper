@@ -1,3 +1,5 @@
+require 'URI'
+
 module Rippersnapper
   class Url
     attr_accessor :subdomain, :domain
