@@ -19,6 +19,14 @@ module Rippersnapper
       parsed_domain.suffix
     end
 
+    def domain
+      parsed_domain.domain
+    end
+
+    def subdomain
+      parsed_domain.subdomain
+    end
+
     def scheme
       uri.scheme
     end
@@ -29,7 +37,7 @@ module Rippersnapper
 
     def path
       return "#{uri.path}?#{uri.query}" if uri.query
-        uri.path
+      uri.path
     end
 
     private

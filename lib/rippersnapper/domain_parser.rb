@@ -17,6 +17,20 @@ module Rippersnapper
       end
     end
 
+    def domain
+      @domain ||= begin
+        remaining = url_parts - suffix_parts
+        remaining.last
+      end
+    end
+
+    def subdomain
+      @subdomain ||= begin
+        remaining = url_parts - [domain] - suffix_parts
+        remaining.join(".")
+      end
+    end
+
     private
 
     def parts_count
@@ -25,6 +39,10 @@ module Rippersnapper
 
     def url_parts
       @url.split('.')
+    end
+
+    def suffix_parts
+      suffix.split('.')
     end
 
     def suffix_exists? suffix
