@@ -4,5 +4,7 @@ require "rippersnapper/url"
 require "rippersnapper/domain_parser"
 
 module Rippersnapper
-  # Your code goes here...
+  def self.parse url
+    Url.new url
+  end
 end
