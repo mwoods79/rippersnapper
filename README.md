@@ -48,6 +48,9 @@ there are some differences.
     but `localhost:3000` is not a domain name, it's a hostname.  If you need it
     let me know and I will reconsider
 
+3.  There is no `canonical`, I didn't understand the use case for it, nor why it
+    is reversed.  Several google searches came up short on information.
+
 ## Contributing
 
 1. Fork it
