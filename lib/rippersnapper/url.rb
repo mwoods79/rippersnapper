@@ -2,10 +2,9 @@ require 'URI'
 
 module Rippersnapper
   class Url
-    attr_accessor :subdomain, :domain
 
     def initialize url
-      @url = url
+      @url = url.to_s
     end
 
     def uri
@@ -13,7 +12,7 @@ module Rippersnapper
     end
 
     def url
-      return @url if @url =~ /:\/\//
+      return @url if @url =~ /:\/\// || @url.empty?
       "http://#{@url}"
     end
 
@@ -30,11 +29,11 @@ module Rippersnapper
     end
 
     def scheme
-      uri.scheme
+      uri.scheme || ""
     end
 
     def host
-      uri.host
+      uri.host || ""
     end
 
     def path

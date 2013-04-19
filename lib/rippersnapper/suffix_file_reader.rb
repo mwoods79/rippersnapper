@@ -9,8 +9,6 @@ module Rippersnapper
 
     def initialize file = nil
       @file = file || File.open(File.dirname(__FILE__) + "/public_suffix.dat", 'r')
-      # Recursive hash of hashes http://stackoverflow.com/a/170240/973860
-      #@public_suffixes = Hash.new(&(p=lambda{|h,k| h[k] = Hash.new(&p)}))
       @public_suffixes = Hash.new { false }
       parse_file
     end
@@ -26,6 +24,8 @@ module Rippersnapper
 
     private
 
+    # NOTE: This could be extracted into an object if something more robust is
+    # needed in the future
     def parse_file
       file.each_line do |line|
         line = line.strip
@@ -34,7 +34,5 @@ module Rippersnapper
         end
       end
     end
-
   end
-
 end

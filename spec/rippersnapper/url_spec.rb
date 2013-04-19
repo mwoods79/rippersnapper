@@ -42,5 +42,16 @@ module Rippersnapper
       its(:suffix) { should eq "com" }
       its(:domain) { should eq "google" }
     end
+
+    context "when url is nil" do
+      subject {Url.new nil}
+      its(:url) { should eq "" }
+      its(:path) { should eq "" }
+      its(:scheme) { should eq "" }
+      its(:host) { should eq "" }
+      its(:suffix) { should eq "" }
+      its(:domain) { should eq "" }
+      its(:subdomain) { should eq "" }
+    end
   end
 end

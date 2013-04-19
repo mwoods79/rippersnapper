@@ -17,5 +17,13 @@ module Rippersnapper
       its(:domain) { should eq "google" }
       its(:suffix) { should eq "whatever.sapporo.jp" }
     end
+
+    context "empty url" do
+      subject { DomainParser.new "" }
+      its(:subdomain) { should eq "" }
+      its(:domain) { should eq "" }
+      its(:suffix) { should eq "" }
+    end
+
   end
 end

@@ -1,6 +1,5 @@
 module Rippersnapper
   class DomainParser
-    attr_reader :domain, :subdomain
 
     def initialize url
       @url = url
@@ -13,14 +12,14 @@ module Rippersnapper
           test = url_parts.last(iteration + 1).join(".")
           found = test if suffix_exists?(test)
         end
-        found
+        found.to_s
       end
     end
 
     def domain
       @domain ||= begin
         remaining = url_parts - suffix_parts
-        remaining.last
+        remaining.last.to_s
       end
     end
 
