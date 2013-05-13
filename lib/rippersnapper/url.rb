@@ -1,4 +1,4 @@
-require 'URI'
+require 'uri'
 
 module Rippersnapper
   class Url
