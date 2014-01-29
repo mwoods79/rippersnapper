@@ -12,17 +12,18 @@ module Rippersnapper
     it { should respond_to :url }
     it { should respond_to :suffix }
     it { should respond_to :subdomain }
-
+    it { should respond_to :port }
 
     context "with a scheme" do
-      subject { Url.new "http://drive.google.com/micah" }
-      its(:url) { should eq "http://drive.google.com/micah" }
+      subject { Url.new "http://drive.google.com:91/micah" }
+      its(:url) { should eq "http://drive.google.com:91/micah" }
       its(:path) { should eq "/micah" }
       its(:scheme) { should eq "http" }
       its(:host) { should eq "drive.google.com" }
       its(:suffix) { should eq "com" }
       its(:domain) { should eq "google" }
       its(:subdomain) { should eq "drive" }
+      its(:port) { should eq 91 }
     end
 
     context "without a scheme" do
@@ -34,6 +35,7 @@ module Rippersnapper
       its(:suffix) { should eq "com" }
       its(:domain) { should eq "google" }
       its(:subdomain) { should eq "www" }
+      its(:port) { should eq 80 }
     end
 
     context "with a query string" do
@@ -52,6 +54,7 @@ module Rippersnapper
       its(:suffix) { should eq "" }
       its(:domain) { should eq "" }
       its(:subdomain) { should eq "" }
+      its(:port) { should be_nil }
     end
   end
 end

@@ -41,6 +41,10 @@ module Rippersnapper
       uri.path
     end
 
+    def port
+      uri.port
+    end
+
     private
 
     def parsed_domain
