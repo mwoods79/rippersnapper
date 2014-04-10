@@ -1,5 +1,7 @@
 # Rippersnapper
 
+[![Build Status](https://travis-ci.org/mwoods79/rippersnapper.svg?branch=master)](https://travis-ci.org/mwoods79/rippersnapper)
+
 ![Rippersnapper](https://github.com/mwoods79/rippersnapper/raw/master/rippersnapper.jpg)
 
 Rippersnapper transforms into a weird upright bipedal shark creature. His finned
