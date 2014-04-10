@@ -1,10 +1,15 @@
 module Rippersnapper
   class DomainParser
 
+    # @params url [String] Url to be parsed
+    # @return [self]
     def initialize url
       @url = url
     end
 
+    # @return [String] The suffix for the url taken in initialize
+    # @example
+    #   DomainParser.new("www.google.com").suffix #=> "com"
     def suffix
       @suffix ||= begin
         found = nil
@@ -16,6 +21,9 @@ module Rippersnapper
       end
     end
 
+    # @return [String] The domain for the url taken in initialize
+    # @example
+    #   DomainParser.new("www.google.com").domain #=> "google"
     def domain
       @domain ||= begin
         remaining = url_parts - suffix_parts
@@ -23,6 +31,9 @@ module Rippersnapper
       end
     end
 
+    # @return [String] The subdomain for the url taken in initialize
+    # @example
+    #   DomainParser.new("www.google.com").subdomain #=> "www"
     def subdomain
       @subdomain ||= begin
         remaining = url_parts - [domain] - suffix_parts
