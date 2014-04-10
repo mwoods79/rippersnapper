@@ -45,7 +45,7 @@ module Rippersnapper
 
       context "rejecting invalid data" do
         it "doesn't match suffix that is not in file" do
-          expect(subject.contains?("foo")).to be_false
+          expect(subject.contains?("baz")).to be_false
         end
 
         it "doesn't match complex suffix that are not in file" do
