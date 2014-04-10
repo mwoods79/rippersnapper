@@ -1,4 +1,8 @@
 language: ruby
+gemfile:
+  - Gemfile
+script:
+  - bundle exec rspec
 rvm:
   - ruby-head
   - 2.1.0
