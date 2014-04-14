@@ -1,6 +1,7 @@
 # Rippersnapper
 
 [![Build Status](https://travis-ci.org/mwoods79/rippersnapper.svg?branch=master)](https://travis-ci.org/mwoods79/rippersnapper)
+[![Code Climate](https://codeclimate.com/github/mwoods79/rippersnapper.png)](https://codeclimate.com/github/mwoods79/rippersnapper)
 
 ![Rippersnapper](https://github.com/mwoods79/rippersnapper/raw/master/rippersnapper.jpg)
 
