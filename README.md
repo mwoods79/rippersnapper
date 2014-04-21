@@ -38,7 +38,7 @@ Or install it yourself as:
 
 ## Notable differences between Rippersnapper and [Domainatrix](https://github.com/pauldix/domainatrix)
 
-One of Rippersnappers goals is to be a compatable API with Domainatrix, but
+One of Rippersnappers goals is to be a compatible API with Domainatrix, but
 there are some differences.
 
 1.  Rippersnapper chose the method name `suffix` instead of `public_suffix`.
