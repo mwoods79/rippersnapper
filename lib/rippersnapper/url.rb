@@ -20,6 +20,12 @@ module Rippersnapper
       @uri ||= URI.parse url
     end
 
+    # Used to see if the host is an IP address
+    # @return [Boolean] true represents an ip address for host
+    def ip?
+      !!(host =~ /^\d+\.\d+\.\d+\.\d+$/)
+    end
+
     # If url has a scheme use it if not assume http
     # @return [String] The url to be processed
     def url
@@ -84,7 +90,7 @@ module Rippersnapper
     private
 
     def parsed_domain
-      @parsed_domain ||= DomainParser.new host
+      @parsed_domain ||= ip? ? IpParser.new(host) : DomainParser.new(host)
     end
   end
 end

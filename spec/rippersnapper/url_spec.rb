@@ -56,5 +56,16 @@ module Rippersnapper
       its(:subdomain) { should eq "" }
       its(:port) { should be_nil }
     end
+
+    context "whith ip address" do
+      subject { Url.new "http://10.0.1.1/" }
+      its(:url) { should eq "http://10.0.1.1/" }
+      its(:path) { should eq "/" }
+      its(:scheme) { should eq "http" }
+      its(:host) { should eq "10.0.1.1" }
+      its(:suffix) { should eq "" }
+      its(:domain) { should eq "10.0.1.1" }
+      its(:subdomain) { should eq "" }
+    end
   end
 end
