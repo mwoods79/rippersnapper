@@ -11,6 +11,10 @@ module Rippersnapper
       @uri ||= URI.parse url
     end
 
+    def ip?
+      host =~ /^\d+\.\d+\.\d+\.\d+$/
+    end
+
     def url
       return @url if @url =~ /:\/\// || @url.empty?
       "http://#{@url}"
@@ -44,7 +48,7 @@ module Rippersnapper
     private
 
     def parsed_domain
-      @parsed_domain ||= DomainParser.new host
+      @parsed_domain ||= ip? ? IpParser.new(host) : DomainParser.new(host)
     end
   end
 end
