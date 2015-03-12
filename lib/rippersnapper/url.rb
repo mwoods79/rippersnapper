@@ -2,10 +2,12 @@ require 'uri'
 
 module Rippersnapper
   class Url
+    attr_reader :url
 
     # @params url [String] The URL to be parsed
     def initialize url
-      @url = url.to_s
+      @raw_url = url.to_s
+      @url = url_with_scheme
     end
 
     # URI object from url passed to initialize
@@ -24,15 +26,6 @@ module Rippersnapper
     # @return [Boolean] true represents an ip address for host
     def ip?
       !!(host =~ /^\d+\.\d+\.\d+\.\d+$/)
-    end
-
-    # If url has a scheme use it if not assume http
-    # @return [String] The url to be processed
-    def url
-      return @url if @url =~ /:\/\// || @url.empty?
-
-      # sensible default
-      "http://#{@url}"
     end
 
     # Pass through to DomainParser object
@@ -89,6 +82,20 @@ module Rippersnapper
 
     private
 
+    # If url has a scheme use it if not assume http
+    # @return [String] The url to be processed
+    def url_with_scheme
+      return @raw_url if @raw_url.empty? || url_has_scheme?
+
+      # sensible default
+      "http://#{@raw_url}"
+    end
+
+    def url_has_scheme?
+      @raw_url.match(/\A[a-z0-9+-\.]+:\/\//i)
+    end
+
+    # URI object from url passed to initialize
     def parsed_domain
       @parsed_domain ||= ip? ? IpParser.new(host) : DomainParser.new(host)
     end
