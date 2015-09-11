@@ -38,6 +38,18 @@ module Rippersnapper
       its(:port) { should eq 80 }
     end
 
+    context "without a scheme with funny query" do
+      subject { Url.new "www.mustards.com/?q=://" }
+      its(:url) { should eq "http://www.mustards.com/?q=://" }
+      its(:path) { should eq "/?q=://" }
+      its(:scheme) { should eq "http" }
+      its(:host) { should eq "www.mustards.com" }
+      its(:suffix) { should eq "com" }
+      its(:domain) { should eq "mustards" }
+      its(:subdomain) { should eq "www" }
+      its(:port) { should eq 80 }
+    end
+
     context "with a query string" do
       subject { Url.new "www.google.com/micah?date=today" }
       its(:path) { should eq "/micah?date=today" }
@@ -57,7 +69,7 @@ module Rippersnapper
       its(:port) { should be_nil }
     end
 
-    context "whith ip address" do
+    context "with ip address" do
       subject { Url.new "http://10.0.1.1/" }
       its(:url) { should eq "http://10.0.1.1/" }
       its(:path) { should eq "/" }
