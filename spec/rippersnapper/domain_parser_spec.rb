@@ -6,23 +6,59 @@ module Rippersnapper
 
     context "simple domain" do
       subject { DomainParser.new "www.google.com" }
-      its(:subdomain) { should eq "www" }
-      its(:domain) { should eq "google" }
-      its(:suffix) { should eq "com" }
+
+      describe '#subdomain' do
+        subject { super().subdomain }
+        it { is_expected.to eq "www" }
+      end
+
+      describe '#domain' do
+        subject { super().domain }
+        it { is_expected.to eq "google" }
+      end
+
+      describe '#suffix' do
+        subject { super().suffix }
+        it { is_expected.to eq "com" }
+      end
     end
 
     context "complex domain" do
       subject { DomainParser.new "my.drive.google.whatever.sapporo.jp" }
-      its(:subdomain) { should eq "my.drive" }
-      its(:domain) { should eq "google" }
-      its(:suffix) { should eq "whatever.sapporo.jp" }
+
+      describe '#subdomain' do
+        subject { super().subdomain }
+        it { is_expected.to eq "my.drive" }
+      end
+
+      describe '#domain' do
+        subject { super().domain }
+        it { is_expected.to eq "google" }
+      end
+
+      describe '#suffix' do
+        subject { super().suffix }
+        it { is_expected.to eq "whatever.sapporo.jp" }
+      end
     end
 
     context "empty url" do
       subject { DomainParser.new "" }
-      its(:subdomain) { should eq "" }
-      its(:domain) { should eq "" }
-      its(:suffix) { should eq "" }
+
+      describe '#subdomain' do
+        subject { super().subdomain }
+        it { is_expected.to eq "" }
+      end
+
+      describe '#domain' do
+        subject { super().domain }
+        it { is_expected.to eq "" }
+      end
+
+      describe '#suffix' do
+        subject { super().suffix }
+        it { is_expected.to eq "" }
+      end
     end
 
   end
