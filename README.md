@@ -36,6 +36,13 @@ Or install it yourself as:
     url.subdomain # => "foo.bar"
     url.path      # => "/asdf.html?q=arg"
 
+    # optionally preload suffixes file to avoid loading on each call to `#parse`
+    Rippersnapper.load_suffixes
+    # subsequent calls to parse will use the same `SuffixFileReader` instance
+
+    # unloading the suffixes simply sets the internal variable to `nil`
+    Rippersnapper.unload_suffixes
+
 ## Notable differences between Rippersnapper and [Domainatrix](https://github.com/pauldix/domainatrix)
 
 One of Rippersnappers goals is to be a compatible API with Domainatrix, but
