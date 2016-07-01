@@ -48,11 +48,11 @@ module Rippersnapper
     end
 
     def url_parts
-      @url.split('.')
+      @url.split(".")
     end
 
     def suffix_parts
-      suffix.split('.')
+      suffix.split(".")
     end
 
     def suffix_exists? suffix

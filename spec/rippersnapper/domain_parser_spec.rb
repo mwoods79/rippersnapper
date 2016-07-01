@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 module Rippersnapper
 
@@ -7,17 +7,17 @@ module Rippersnapper
     context "simple domain" do
       subject { DomainParser.new "www.google.com" }
 
-      describe '#subdomain' do
+      describe "#subdomain" do
         subject { super().subdomain }
         it { is_expected.to eq "www" }
       end
 
-      describe '#domain' do
+      describe "#domain" do
         subject { super().domain }
         it { is_expected.to eq "google" }
       end
 
-      describe '#suffix' do
+      describe "#suffix" do
         subject { super().suffix }
         it { is_expected.to eq "com" }
       end
@@ -26,17 +26,17 @@ module Rippersnapper
     context "complex domain" do
       subject { DomainParser.new "my.drive.google.whatever.sapporo.jp" }
 
-      describe '#subdomain' do
+      describe "#subdomain" do
         subject { super().subdomain }
         it { is_expected.to eq "my.drive" }
       end
 
-      describe '#domain' do
+      describe "#domain" do
         subject { super().domain }
         it { is_expected.to eq "google" }
       end
 
-      describe '#suffix' do
+      describe "#suffix" do
         subject { super().suffix }
         it { is_expected.to eq "whatever.sapporo.jp" }
       end
@@ -45,17 +45,17 @@ module Rippersnapper
     context "empty url" do
       subject { DomainParser.new "" }
 
-      describe '#subdomain' do
+      describe "#subdomain" do
         subject { super().subdomain }
         it { is_expected.to eq "" }
       end
 
-      describe '#domain' do
+      describe "#domain" do
         subject { super().domain }
         it { is_expected.to eq "" }
       end
 
-      describe '#suffix' do
+      describe "#suffix" do
         subject { super().suffix }
         it { is_expected.to eq "" }
       end

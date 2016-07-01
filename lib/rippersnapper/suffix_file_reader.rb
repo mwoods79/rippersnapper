@@ -8,7 +8,7 @@ module Rippersnapper
     # @params file [File] file object containing public suffixes
     # @return [self]
     def initialize file = nil
-      @file = file || File.open(File.dirname(__FILE__) + "/public_suffix.dat", 'r')
+      @file = file || File.open(File.dirname(__FILE__) + "/public_suffix.dat", "r")
       @public_suffixes = Hash.new { false }
       parse_file
     end
@@ -20,9 +20,9 @@ module Rippersnapper
     # in suffix file
     def contains? suffix
       @public_suffixes[suffix] || begin
-        suffix_parts = suffix.split('.')
+        suffix_parts = suffix.split(".")
         suffix_parts.shift
-        asterix_suffix = ["*", suffix_parts].join('.')
+        asterix_suffix = ["*", suffix_parts].join(".")
         @public_suffixes[asterix_suffix]
       end
     end
