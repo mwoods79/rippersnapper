@@ -60,7 +60,8 @@ module Rippersnapper
     end
 
     def suffix_reader
-      @suffix_reader ||= SuffixFileReader.new
+      @suffix_reader ||= (Rippersnapper.suffix_file_reader ||
+                          SuffixFileReader.new)
     end
   end
 end

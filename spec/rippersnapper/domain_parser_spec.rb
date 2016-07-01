@@ -61,5 +61,18 @@ module Rippersnapper
       end
     end
 
+    context "preloaded suffix file" do
+      before { Rippersnapper.load_suffixes }
+      after { Rippersnapper.unload_suffixes }
+
+      subject { described_class.new("").send(:suffix_reader) }
+
+      it { is_expected.to be_kind_of SuffixFileReader }
+
+      it "uses the preloaded reader" do
+        expect(subject.object_id)
+          .to eq(Rippersnapper.suffix_file_reader.object_id)
+      end
+    end
   end
 end
